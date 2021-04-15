@@ -1,5 +1,5 @@
 package com.finorganizer;
-import java.util.Date;
+import java.util.*;
 
 class Record {
     private String name;
@@ -9,6 +9,11 @@ class Record {
         this.name = name;
         this.sum = sum;
         this.date = new Date();
+    }
+    public Record(String name, double sum, Date date) {
+        this.name = name;
+        this.sum = sum;
+        this.date = date;
     }
     public String getName() {
         return this.name;

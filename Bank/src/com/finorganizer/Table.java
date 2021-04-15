@@ -1,5 +1,6 @@
 package com.finorganizer;
-import java.util.ArrayList;
+
+import java.util.*;
 
 class Table {
     private ArrayList<Record> records;
@@ -7,6 +8,10 @@ class Table {
     public Table() {
         this.records = new ArrayList<Record>();
     }
+    public Table(Record[] records) {
+        this.records = new ArrayList<Record>(Arrays.asList(records));
+    }
+
     public double getTotal() {
         double bank=0;
         for(Record r: records){
@@ -16,6 +21,10 @@ class Table {
     }
     public void add(String name, double sum){
         this.records.add(new Record(name, sum));
+        System.out.println("Создана запись " + (records.size() - 1));
+    }
+    public void add(Record record){
+        this.records.add(record);
         System.out.println("Создана запись " + (records.size() - 1));
     }
     public void delete(int id){
@@ -36,5 +45,10 @@ class Table {
             str = str + r.toString() + "\n";
         }
         return str;
+    }
+    public void combine (Table other){
+        for (Record r: other.records){
+            this.records.add(r);
+        }
     }
 }
